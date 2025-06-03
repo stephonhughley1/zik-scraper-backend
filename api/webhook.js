@@ -1,6 +1,10 @@
 export default async function handler(req, res) {
+  console.log("Webhook handler called");
+  
   if (req.method === "POST") {
     const event = req.body;
+
+    console.log("Event type:", event.type);  // Log the event type for testing
 
     if (event.type === "checkout.session.completed") {
       const session = event.data.object;
